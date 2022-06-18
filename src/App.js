@@ -1,23 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Card from 'react-bootstrap/Card';
+import CardDeck from 'react-bootstrap/CardDeck';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <CardDeck>
+        <Card 
+          bg="info"
+          text="white"
         >
-          Learn React
-        </a>
-      </header>
+          <Card.Body>
+            <Card.Title>Cases</Card.Title>
+            <Card.Text>
+              1,000,000
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer>
+            <small>Last updated 3 mins ago</small>
+          </Card.Footer>
+        </Card>
+        <Card
+          bg="warning"
+          text="white"
+        >
+          <Card.Body>
+            <Card.Title>Cases</Card.Title>
+            <Card.Text>
+              1,000
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer>
+            <small>Last updated 3 mins ago</small>
+          </Card.Footer>
+        </Card>
+        <Card
+          bg="secondary"
+          text="white"
+        >
+          <Card.Body>
+            <Card.Title>Cases</Card.Title>
+            <Card.Text>
+              3,900
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer>
+            <small>Last updated 3 mins ago</small>
+          </Card.Footer>
+        </Card>
+      </CardDeck>
     </div>
   );
 }
