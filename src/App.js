@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Alert from "react-bootstrap/Alert";
@@ -8,7 +9,6 @@ import Row from 'react-bootstrap/Row';
 import Dropdown from "react-bootstrap/Dropdown";
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import API from './utils/api';
 import Helper from "./utils/helper";
 import SmallTag from "./components/SmallTag";
@@ -19,6 +19,11 @@ function App() {
   const [errorMessage, setErrorMessage] = useState(null);
   const [occurrenceCountries, setOccurrenceCountries] = useState([]);
   const [searchCountry, setSeachCounty] = useState(null);
+
+  const searchCountryHandler = (evt) => {
+    evt.preventDefault();
+    setSeachCounty(evt.target.value);
+  }
 
   useEffect(() => {
     axios.all([
@@ -36,12 +41,16 @@ function App() {
 
   return (
     <div>
-      {errorMessage && (<Container className="text-center">
-        <Alert variant="danger" className="mt-5" onClose={() => setErrorMessage(null)} dismissible>
-          {errorMessage}
-        </Alert>
-      </Container>)}
+      {errorMessage && (
+        <Container className="text-center">
+          <Alert variant="danger" className="mt-5" onClose={() => setErrorMessage(null)} dismissible>
+            {errorMessage}
+          </Alert>
+        </Container>)
+      }
+
       <h2 className="text-center mt-5">Covid-19 Live stat</h2>
+      
       <CardDeck>
         <Card 
           bg="warning"
@@ -94,7 +103,7 @@ function App() {
         <Form>
           <Form.Group as={Row} controlId="formSearchCountry">
             <Col sm="4">
-              <Form.Control type="text" name="searchCountry" onChange={(evt) => { evt.preventDefault(); setSeachCounty(evt.target.value) }} placeholder="Country to search" />
+              <Form.Control type="text" name="searchCountry" onChange={(evt) => searchCountryHandler(evt)} placeholder="Country to search" />
             </Col>
           </Form.Group>
         </Form>
