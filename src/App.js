@@ -94,7 +94,7 @@ function App() {
         <Form>
           <Form.Group as={Row} controlId="formSearchCountry">
             <Col sm="4">
-              <Form.Control type="text" name="searchCountry" onChange={(evt) => setSeachCounty(evt.target.value)} placeholder="Country to search" />
+              <Form.Control type="text" name="searchCountry" onChange={(evt) => { evt.preventDefault(); setSeachCounty(evt.target.value) }} placeholder="Country to search" />
             </Col>
           </Form.Group>
         </Form>
