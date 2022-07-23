@@ -1,7 +1,6 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
 import Col from "react-bootstrap/Col";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Helper from "../utils/helper";
 import SmallTag from "./SmallTag";
 

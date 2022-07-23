@@ -5,7 +5,7 @@ import Helper from "../utils/helper";
 function SmallTag({lastUpdated}) {
 
     return (
-        <small>Last updated <Moment fromNow>{Helper.formatDateToHumanReadable(lastUpdated)}</Moment> </small>
+        lastUpdated && <small>Last updated <Moment fromNow>{Helper.formatDateToHumanReadable(lastUpdated)}</Moment> </small>
     );
 }
 
